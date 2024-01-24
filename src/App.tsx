@@ -857,7 +857,8 @@ const MyTable = ({ client, setSelectedComponent, selectedAid, selectedAcdc }) =>
                 <TableCell>{item.size == undefined ? "unknown" : item.size}</TableCell>
                 <TableCell style={
                   item.status === 'verified' ? {'color': 'green'} : item.status === 'failed' ? {'color': 'red'} : {'color': 'yellow'}}>
-                  {item.status.charAt(0).toUpperCase() + item.status.slice(1)}</TableCell>
+                  {item.status?.charAt(0).toUpperCase() + item.status?.slice(1) ?? "unknown"}
+                </TableCell>
                 <TableCell>{item.message == undefined ? "unknown" : item.message.substring(0,75)}</TableCell>
               </TableRow>
             ))}
